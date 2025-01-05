@@ -11,6 +11,7 @@ read_tracking <- function(wk) {
   # Add a new col. for the week
   return(tracking)
 }
+saveRDS(read_tracking, "tracking.rds")
 # Create a function to aggregate all data
 create <- function() {
   # Read in csv's
@@ -150,7 +151,6 @@ sequences <- data %>%
 # Cbind sequences with cluster results
 res <- cbind(sequences, cluster = cluster_labels)
 saveRDS(res, "results.rds")
-res <- readRDS("shiny/results.rds")
 tracking <- read_tracking(1) %>% # Read in week 1 tracking data
   filter(gameId == 2022090800) # Filter gameId (first game of the NFL season)
 # Read in plays w/ team data and yardsToGo
