@@ -148,7 +148,7 @@ server <- function(input, output, session) {
                  `Half-field motion` == m_inputs$c3 & `Quick shift` == m_inputs$c2 & 
                  `No motion` == m_inputs$c1 & `Slow shift` == m_inputs$c5) %>%
         arrange(avg_epa) %>% 
-        select("Coverage (via PFF)" = pffCoverage, Plays = plays, "Rush Frequency" = r_freq, "EPA/Play" = avg_epa, "EPA/Play if Rush" = epa_if_rush, "EPA/Play if Pass" = epa_if_pass)
+        select("Coverage (via PFF)" = pffCoverage, Plays = plays, "Rush Frequency" = r_freq, "EPA/Play" = avg_epa)
     } else {
       filtered_df <- df_by_play_type %>%
         filter(offenseFormation == input$formation & playType == input$playType & 
